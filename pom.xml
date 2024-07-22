@@ -24,25 +24,16 @@
           <groupId>io.cucumber</groupId>
           <artifactId>cucumber-maven-plugin</artifactId>
           <version>7.0.0</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>test</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <format>json:target/cucumber-report.json</format>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.2</version>
           <configuration>
-            <includes>
-              <include>**/*Test.java</include>
-            </includes>
+            <systemPropertyVariables>
+              <cucumber.publish.quit>true</cucumber.publish.quit>
+              <cucumber.plugin>pretty, junit:target/cucumber-report.xml, json:target/cucumber-report.json, html:target/cucumber-report.html</cucumber.plugin>
+            </systemPropertyVariables>
           </configuration>
         </plugin>
       </plugins>
