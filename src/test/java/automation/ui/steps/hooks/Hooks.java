@@ -15,7 +15,7 @@ public class Hooks {
 
     @Before("not @Registration")
     public void the_user_is_on_dbank_homepage() {
-        getDriver().get("http://52.49.187.74/bank/login");
+        getDriver().get("http://52.17.179.252/bank/login");
     }
 
     @After
